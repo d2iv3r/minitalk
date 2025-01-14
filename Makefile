@@ -25,12 +25,12 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 S_SRC = server.c
-C_SRC = client.c ft_atoi.c ft_isdigit.c
+C_SRC = client.c utils/ft_atoi.c utils/ft_isdigit.c
 S_OBJ = $(S_SRC:.c=.o)
 C_OBJ = $(C_SRC:.c=.o)
 
 BS_SRC = server_bonus.c ft_bzero.c
-BC_SRC = client_bonus.c ft_atoi.c ft_isdigit.c ft_strlen.c
+BC_SRC = client_bonus.c utils/ft_atoi.c utils/ft_isdigit.c utils/ft_strlen.c
 BS_OBJ = $(BS_SRC:.c=.o)
 BC_OBJ = $(BC_SRC:.c=.o)
 
@@ -40,23 +40,23 @@ bonus : $(LIB_PRINTF) $(SERVER_BONUS) $(CLIENT_BONUS)
 
 $(SERVER) : $(S_OBJ) minitalk.h
 	$(CC) $(CFLAGS) $(LIB_PRINTF) $(S_OBJ) -o $@
-	
+
 $(CLIENT) : $(C_OBJ) minitalk.h
 	$(CC) $(CFLAGS) $(LIB_PRINTF) $(C_OBJ) -o $@
 
 $(SERVER_BONUS) : $(BS_OBJ) minitalk.h
 	$(CC) $(CFLAGS) $(LIB_PRINTF) $(BS_OBJ) -o $@
-	
+
 $(CLIENT_BONUS) : $(BC_OBJ) minitalk.h
 	$(CC) $(CFLAGS) $(LIB_PRINTF) $(BC_OBJ) -o $@
 
 %.o : %.c
 	$(CC) -c $(CFLAGS) $< -o $@
-	
+
 $(LIB_PRINTF) :
 	$(MAKE) -C ft_printf
 
-clean : 
+clean :
 	$(MAKE) clean -C ft_printf
 	rm -rf *.o
 

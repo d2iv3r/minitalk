@@ -59,3 +59,8 @@ Minitalk uses `SIGUSR1` and `SIGUSR2` signals to encode and transmit characters.
 - SIGUSR2 represents a 1.
 
 The server assembles the bits into characters and reconstructs the original string.
+
+## Subject
+https://cdn.intra.42.fr/pdf/pdf/148041/en.subject.pdf
+
+---
